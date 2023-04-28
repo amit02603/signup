@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>REGISTER</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script src="myscripts.js"></script>
+</head>
+
+<body>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="title">Registation</div>
+            <form action="/register" method="POST">
+                <div class="user_details">
+                    <div class="input_pox">
+                        <span class="datails">First Name</span>
+                        <input type="text" placeholder="enter your first name" name="firstname" required>
+                    </div>
+                    <div class="input_pox">
+                        <span class="datails">Last name</span>
+                        <input type="text" placeholder="enter your Last name" name="lastname" required>
+                    </div>
+                    <div class="input_pox">
+                        <span class="datails">Email</span>
+                        <input type="email" placeholder="enter your Email" name="email" required>
+                    </div>
+                    <div class="input_pox">
+                        <span class="datails">Age</span>
+                        <input type="number" placeholder="enter your Age" name="age"  min="18"  max="95" required>
+                    </div>
+                    <div class="input_pox">
+                        <span class="datails">Password</span>
+                        <input id="password" type="password" placeholder="enter your Password" name="password" required>
+                    </div>
+                    <div class="input_pox">
+                        <span class="datails">Confirm Password</span>
+                        <input id="confirm_password" type="password" placeholder="Confirm your Password"
+                            name="confirmpassword" required>
+                    </div>
+                </div>
+                <div class="gender_details">
+                    <input type="radio" name="gender" id="dot-1">
+                    <input type="radio" name="gender" id="dot-2">
+                    <input type="radio" name="gender" id="dot-3">
+                    <span class="gender_title"> Gender</span>
+                    <div class="category">
+                        <label for="dot-1">
+                            <span class="dot one"></span>
+                            <span class="gender">Male</span>
+                        </label>
+                        <label for="dot-2">
+                            <span class="dot two"></span>
+                            <span class="gender">Female</span>
+                        </label>
+                        <label for="dot-3">
+                            <span class="dot three"></span>
+                            <span class="gender">Prefer not to say</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="button">
+                    <input type="submit" value="register">
+
+                </div>
+
+                <div class="button">
+                    <button class="log" onclick="window.location.href = '/login';">
+                        LOGIN
+                    </button>
+
+                </div>
+            </form>
+        </div>
+        <script>
+
+
+            // for a proper validation of email
+
+            function ValidateEmail(inputText) {
+                var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                if (inputText.value.match(mailformat)) {
+                    document.write("Valid email address!");
+                    document.form1.text1.focus();
+                    return true;
+                }
+                else {
+                    document.write("You have entered an invalid email address!");
+                    document.form1.text1.focus();
+                    return false;
+                }
+            }
+
+
+            // for confirm password with first password
+            var password = document.getElementById("password")
+                , confirm_password = document.getElementById("confirm_password");
+
+            function validatePassword() {
+                if (password.value != confirm_password.value) {
+                    confirm_password.setCustomValidity("Passwords did not Match");
+
+                } else {
+                    confirm_password.setCustomValidity('');
+                }
+            }
+
+            password.onchange = validatePassword;
+            confirm_password.onkeyup = validatePassword;
+        </script>
+    </body>
+
+    </html>
